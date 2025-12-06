@@ -128,7 +128,7 @@ exports.config = {
     allure: {
         outputDir: 'allure-results',
     }
-}
+    },
     // Options to be passed to Mocha.
     // See the full list at http://mochajs.org/
     mochaOpts: {
