@@ -13,7 +13,9 @@ describe("Transfer Flow", () => {
         registerPage = new RegisterPage(browser);
         transferPage = new TransferPage(browser);
     })
-    
+    afterEach(async () => {
+        await browser.url('/');
+    })
     it('Should register a new user', async () => {
         await registerPage.clickRegisterForm();
         await registerPage.fillFirstName("John");

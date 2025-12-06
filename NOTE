@@ -16,7 +16,58 @@ Confirmar transferencia
 
 En wdio.conf.js, busca la sección de capabilities y asegúrate que browserName esté configurado correctamente.
 
-crear .gitignore
-    node_modules/
-    .DS_Store
-    *.log
+1-git init
+    crear .gitignore
+        node_modules/
+        .DS_Store
+        *.log
+2-git add .
+3-git commit -m "Initial commit: WDIO Parabank automation setup"
+4-Crear repositorio github
+5-git remote add origin https://github.com/ManuelTissone/wdio-parabank-automation.git
+6-git branch -M main
+7-git push -u origin main
+
+Creo Pipeline
+    La pipeline automatiza esto:
+        Cada vez que haces git push, GitHub Actions lo detecta
+        Ejecuta npm install (instala dependencias)
+        Ejecuta npm test (corre los tests)
+        Si fallan, te avisa
+        Si pasan, todo ok
+
+8-mkdir -p .github/workflows
+9-creo test.yml en workflows
+    name: Run Tests
+
+    on:
+    push:
+        branches: [ main ]
+    pull_request:
+        branches: [ main ]
+
+    jobs:
+    test:
+        runs-on: ubuntu-latest
+
+        strategy:
+        matrix:
+            node-version: [18.x]
+
+        steps:
+        - uses: actions/checkout@v3
+
+        - name: Use Node.js ${{ matrix.node-version }}
+            uses: actions/setup-node@v3
+            with:
+            node-version: ${{ matrix.node-version }}
+
+        - name: Install dependencies
+            run: npm install
+
+        - name: Run tests
+            run: npm test
+
+10-git add .github/
+11-git commit -m "Add GitHub Actions CI/CD pipeline"
+12-git push origin main
