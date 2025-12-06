@@ -71,3 +71,15 @@ Creo Pipeline
 10-git add .github/
 11-git commit -m "Add GitHub Actions CI/CD pipeline"
 12-git push origin main
+
+CI (Continuous Integration) = concepto. Significa integrar código constantemente y testear automáticamente.
+GitHub Actions = herramienta que implementa CI.
+Pipeline = el archivo .yml que define los pasos.
+Entonces: GitHub Actions es la herramienta, el .yml es la pipeline, y todo junto implementa CI.
+
+---------------------------------------
+
+REPORTS 
+Instalar reporter
+    -npm install --save-dev @wdio/allure-reporter allure-commandline
+    -en wdio.conf.js agregar ['allure']
