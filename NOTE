@@ -1,0 +1,22 @@
+-npm init -y
+-Instalar dependencias en el json. 
+->>>> npm install --save-dev @wdio/cli @wdio/local-runner @wdio/mocha-framework @wdio/chai-service chai webdriverio
+-npx wdio config Instalar WDIO
+
+flujo completo en pasos:
+
+Ir a Parabank (hook)
+Registrarse con datos
+Hacer login
+Ir a Transfer Funds
+Seleccionar cuenta origen
+Seleccionar cuenta destino
+Ingresar monto
+Confirmar transferencia
+
+En wdio.conf.js, busca la sección de capabilities y asegúrate que browserName esté configurado correctamente.
+
+crear .gitignore
+    node_modules/
+    .DS_Store
+    *.log
